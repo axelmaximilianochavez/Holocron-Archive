@@ -1,16 +1,18 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
+	import AlienIcon from '@tabler/icons-svelte/icons/alien';
 	import CameraIcon from '@tabler/icons-svelte/icons/camera';
-	import ChartBarIcon from '@tabler/icons-svelte/icons/chart-bar';
-	import DashboardIcon from '@tabler/icons-svelte/icons/dashboard';
+	import CarIcon from '@tabler/icons-svelte/icons/car';
 	import FileAiIcon from '@tabler/icons-svelte/icons/file-ai';
 	import FileDescriptionIcon from '@tabler/icons-svelte/icons/file-description';
-	import FolderIcon from '@tabler/icons-svelte/icons/folder';
-	import ListDetailsIcon from '@tabler/icons-svelte/icons/list-details';
+	import MovieIcon from '@tabler/icons-svelte/icons/movie';
+	import PlanetIcon from '@tabler/icons-svelte/icons/planet';
+	import RocketIcon from '@tabler/icons-svelte/icons/rocket';
 	import UsersIcon from '@tabler/icons-svelte/icons/users';
 	import type { ComponentProps } from 'svelte';
 	import HolocronIcon from './holocron-icon.svelte';
-	import NavMain from './nav-main.svelte';
+	import NavMain, { type NavItem } from './nav-main.svelte';
 	import NavUser from './nav-user.svelte';
 
 	const data = {
@@ -21,31 +23,36 @@
 		},
 		navMain: [
 			{
-				title: 'Dashboard',
-				url: '#',
-				icon: DashboardIcon
+				title: 'Films',
+				url: '/films',
+				icon: MovieIcon
 			},
 			{
-				title: 'Lifecycle',
-				url: '#',
-				icon: ListDetailsIcon
-			},
-			{
-				title: 'Analytics',
-				url: '#',
-				icon: ChartBarIcon
-			},
-			{
-				title: 'Projects',
-				url: '#',
-				icon: FolderIcon
-			},
-			{
-				title: 'Team',
-				url: '#',
+				title: 'People',
+				url: '/people',
 				icon: UsersIcon
+			},
+			{
+				title: 'Planets',
+				url: '/planets',
+				icon: PlanetIcon
+			},
+			{
+				title: 'Species',
+				url: '/species',
+				icon: AlienIcon
+			},
+			{
+				title: 'Vehicles',
+				url: '/vehicles',
+				icon: CarIcon
+			},
+			{
+				title: 'Starships',
+				url: '/starships',
+				icon: RocketIcon
 			}
-		],
+		] satisfies NavItem[],
 		navClouds: [
 			{
 				title: 'Capture',
@@ -105,7 +112,7 @@
 			<Sidebar.MenuItem>
 				<Sidebar.MenuButton class="data-[slot=sidebar-menu-button]:p-1.5!">
 					{#snippet child({ props })}
-						<a href="##" {...props}>
+						<a href={resolve('/')} {...props}>
 							<HolocronIcon class="size-5! text-primary" />
 							<span class="text-base font-semibold">Holocron Archive</span>
 						</a>

@@ -1,12 +1,15 @@
 <script lang="ts">
+	import PageTitle from '$lib/components/atoms/page-title.svelte';
 </script>
 
-<div class="@container/main flex flex-1 flex-col gap-2">
-	<div class="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-		<!-- <SectionCards /> -->
-		<!-- <div class="px-4 lg:px-6">
-			<ChartAreaInteractive />
-		</div> -->
-		<!-- <DataTable {data} /> -->
-	</div>
-</div>
+<svelte:head>
+	<title>Home · Holocron Archive</title>
+</svelte:head>
+
+<section class="flex flex-1 flex-col items-center justify-center gap-4 p-6 text-center">
+	<PageTitle class="text-4xl md:text-5xl">Welcome to Holocron Archive</PageTitle>
+	<p class="max-w-xl text-base text-muted-foreground md:text-lg">
+		Your archive of the galaxy far, far away. Search films, characters, planets, species, vehicles
+		and starships, all in one place.
+	</p>
+</section>
