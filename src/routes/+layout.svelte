@@ -4,7 +4,8 @@
 	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
 	import AppSidebar from '$lib/components/app-sidebar.svelte';
 	import SiteHeader from '$lib/components/site-header.svelte';
-	import { ModeWatcher } from 'mode-watcher';
+	import Starfield from '$lib/components/starfield.svelte';
+	import { ModeWatcher, mode } from 'mode-watcher';
 
 	let { children } = $props();
 </script>
@@ -17,14 +18,10 @@
 >
 	<AppSidebar variant="inset" />
 	<Sidebar.Inset class="isolate overflow-clip dark:bg-black">
-		<!-- lazy: browsers skip fetching hidden lazy images, so light mode doesn't download it -->
-		<enhanced:img
-			src="$lib/assets/starsBackground.jpg?w=3840;2560;1920;1280;768&quality=90"
-			sizes="100vw"
-			alt=""
-			loading="lazy"
-			class="absolute inset-0 -z-10 hidden size-full object-cover object-center dark:block"
-		/>
+		<!-- only mounted in dark mode, so light mode never starts WebGL -->
+		{#if mode.current === 'dark'}
+			<Starfield class="absolute inset-0 -z-10" />
+		{/if}
 		<SiteHeader />
 		<div class="flex flex-1 flex-col">
 			{@render children()}

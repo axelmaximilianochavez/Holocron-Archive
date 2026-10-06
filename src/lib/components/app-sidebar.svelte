@@ -6,10 +6,10 @@
 	import FileAiIcon from '@tabler/icons-svelte/icons/file-ai';
 	import FileDescriptionIcon from '@tabler/icons-svelte/icons/file-description';
 	import FolderIcon from '@tabler/icons-svelte/icons/folder';
-	import InnerShadowTopIcon from '@tabler/icons-svelte/icons/inner-shadow-top';
 	import ListDetailsIcon from '@tabler/icons-svelte/icons/list-details';
 	import UsersIcon from '@tabler/icons-svelte/icons/users';
 	import type { ComponentProps } from 'svelte';
+	import HolocronIcon from './holocron-icon.svelte';
 	import NavMain from './nav-main.svelte';
 	import NavUser from './nav-user.svelte';
 
@@ -106,7 +106,7 @@
 				<Sidebar.MenuButton class="data-[slot=sidebar-menu-button]:p-1.5!">
 					{#snippet child({ props })}
 						<a href="##" {...props}>
-							<InnerShadowTopIcon class="size-5!" />
+							<HolocronIcon class="size-5! text-primary" />
 							<span class="text-base font-semibold">Holocron Archive</span>
 						</a>
 					{/snippet}
