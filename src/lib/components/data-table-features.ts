@@ -7,8 +7,8 @@ import {
 	rowPaginationFeature,
 	rowSelectionFeature,
 	rowSortingFeature,
-	tableFeatures,
-} from "@tanstack/svelte-table";
+	tableFeatures
+} from '@tanstack/svelte-table';
 
 // New in v9: declare the features this table uses — anything you don't
 // register is tree-shaken out of the bundle.
@@ -20,7 +20,7 @@ export const features = tableFeatures({
 	rowSortingFeature,
 	filteredRowModel: createFilteredRowModel(),
 	paginatedRowModel: createPaginatedRowModel(),
-	sortedRowModel: createSortedRowModel(),
+	sortedRowModel: createSortedRowModel()
 });
 
 export type DashboardTableFeatures = typeof features;

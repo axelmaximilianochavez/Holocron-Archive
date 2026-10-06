@@ -1,14 +1,14 @@
 <script lang="ts">
-	import * as Select from "$lib/components/ui/select/index.js";
-	import { Label } from "$lib/components/ui/label/index.js";
-	import type { DashboardTableFeatures } from "./data-table-features.js";
-	import type { Schema } from "./schemas.js";
-	import type { Row } from "@tanstack/svelte-table";
+	import * as Select from '$lib/components/ui/select/index.js';
+	import { Label } from '$lib/components/ui/label/index.js';
+	import type { DashboardTableFeatures } from './data-table-features.js';
+	import type { Schema } from './schemas.js';
+	import type { Row } from '@tanstack/svelte-table';
 
 	let { row }: { row: Row<DashboardTableFeatures, Schema> } = $props();
 
-	const isAssigned = $derived(row.original.reviewer !== "Assign reviewer");
-	let reviewer = $state("");
+	const isAssigned = $derived(row.original.reviewer !== 'Assign reviewer');
+	let reviewer = $state('');
 </script>
 
 {#if isAssigned}
@@ -22,7 +22,7 @@
 			id="{row.original.id}-reviewer"
 		>
 			<span data-slot="select-value">
-				{reviewer !== "" ? reviewer : "Assign reviewer"}
+				{reviewer !== '' ? reviewer : 'Assign reviewer'}
 			</span>
 		</Select.Trigger>
 		<Select.Content align="end">

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import DotsVerticalIcon from "@tabler/icons-svelte/icons/dots-vertical";
-	import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
-	import { Button } from "$lib/components/ui/button/index.js";
+	import DotsVerticalIcon from '@tabler/icons-svelte/icons/dots-vertical';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
+	import { Button } from '$lib/components/ui/button/index.js';
 </script>
 
 <DropdownMenu.Root>

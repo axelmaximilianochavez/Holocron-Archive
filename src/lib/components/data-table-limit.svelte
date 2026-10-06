@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { toast } from "svelte-sonner";
-	import { Input } from "$lib/components/ui/input/index.js";
-	import { Label } from "$lib/components/ui/label/index.js";
-	import type { DashboardTableFeatures } from "./data-table-features.js";
-	import type { Schema } from "./schemas.js";
-	import type { Row } from "@tanstack/svelte-table";
+	import { toast } from 'svelte-sonner';
+	import { Input } from '$lib/components/ui/input/index.js';
+	import { Label } from '$lib/components/ui/label/index.js';
+	import type { DashboardTableFeatures } from './data-table-features.js';
+	import type { Schema } from './schemas.js';
+	import type { Row } from '@tanstack/svelte-table';
 
 	let { row }: { row: Row<DashboardTableFeatures, Schema> } = $props();
 </script>
@@ -14,8 +14,8 @@
 		e.preventDefault();
 		toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
 			loading: `Saving ${row.original.header}`,
-			success: "Done",
-			error: "Error",
+			success: 'Done',
+			error: 'Error'
 		});
 	}}
 >

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import GripVerticalIcon from "@tabler/icons-svelte/icons/grip-vertical";
-	import { Button } from "$lib/components/ui/button/index.js";
-	import type { Attachment } from "svelte/attachments";
+	import GripVerticalIcon from '@tabler/icons-svelte/icons/grip-vertical';
+	import { Button } from '$lib/components/ui/button/index.js';
+	import type { Attachment } from 'svelte/attachments';
 
 	let { attach }: { attach?: Attachment } = $props();
 </script>
