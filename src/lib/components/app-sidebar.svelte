@@ -1,21 +1,17 @@
 <script lang="ts">
+	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
 	import CameraIcon from '@tabler/icons-svelte/icons/camera';
 	import ChartBarIcon from '@tabler/icons-svelte/icons/chart-bar';
 	import DashboardIcon from '@tabler/icons-svelte/icons/dashboard';
-	import DatabaseIcon from '@tabler/icons-svelte/icons/database';
 	import FileAiIcon from '@tabler/icons-svelte/icons/file-ai';
 	import FileDescriptionIcon from '@tabler/icons-svelte/icons/file-description';
-	import FileWordIcon from '@tabler/icons-svelte/icons/file-word';
 	import FolderIcon from '@tabler/icons-svelte/icons/folder';
 	import InnerShadowTopIcon from '@tabler/icons-svelte/icons/inner-shadow-top';
 	import ListDetailsIcon from '@tabler/icons-svelte/icons/list-details';
-	import ReportIcon from '@tabler/icons-svelte/icons/report';
 	import UsersIcon from '@tabler/icons-svelte/icons/users';
-	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
-	import NavDocuments from './nav-documents.svelte';
+	import type { ComponentProps } from 'svelte';
 	import NavMain from './nav-main.svelte';
 	import NavUser from './nav-user.svelte';
-	import type { ComponentProps } from 'svelte';
 
 	const data = {
 		user: {
@@ -97,23 +93,6 @@
 					}
 				]
 			}
-		],
-		documents: [
-			{
-				name: 'Data Library',
-				url: '#',
-				icon: DatabaseIcon
-			},
-			{
-				name: 'Reports',
-				url: '#',
-				icon: ReportIcon
-			},
-			{
-				name: 'Word Assistant',
-				url: '#',
-				icon: FileWordIcon
-			}
 		]
 	};
 
@@ -124,11 +103,11 @@
 	<Sidebar.Header>
 		<Sidebar.Menu>
 			<Sidebar.MenuItem>
-				<Sidebar.MenuButton class="data-[slot=sidebar-menu-button]:!p-1.5">
+				<Sidebar.MenuButton class="data-[slot=sidebar-menu-button]:p-1.5!">
 					{#snippet child({ props })}
 						<a href="##" {...props}>
-							<InnerShadowTopIcon class="!size-5" />
-							<span class="text-base font-semibold">Acme Inc.</span>
+							<InnerShadowTopIcon class="size-5!" />
+							<span class="text-base font-semibold">Holocron Archive</span>
 						</a>
 					{/snippet}
 				</Sidebar.MenuButton>
@@ -137,7 +116,6 @@
 	</Sidebar.Header>
 	<Sidebar.Content>
 		<NavMain items={data.navMain} />
-		<NavDocuments items={data.documents} />
 	</Sidebar.Content>
 	<Sidebar.Footer>
 		<NavUser user={data.user} />
