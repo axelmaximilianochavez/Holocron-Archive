@@ -1,10 +1,9 @@
 import { getPlanets } from '$lib/api/swapi/planets';
 import type { PageLoad } from './$types';
 
-export const load: PageLoad = async ({ fetch }) => {
-	const planets = await getPlanets(fetch);
-
-	return {
-		planets: planets.toSorted((a, b) => a.name.localeCompare(b.name))
-	};
-};
+// not awaited: the page renders right away and ResourceGrid shows skeletons until the promise resolves
+export const load: PageLoad = ({ fetch }) => ({
+	planets: getPlanets(fetch).then((planets) =>
+		planets.toSorted((a, b) => a.name.localeCompare(b.name))
+	)
+});

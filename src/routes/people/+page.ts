@@ -1,10 +1,7 @@
 import { getPeople } from '$lib/api/swapi/people';
 import type { PageLoad } from './$types';
 
-export const load: PageLoad = async ({ fetch }) => {
-	const people = await getPeople(fetch);
-
-	return {
-		people: people.toSorted((a, b) => a.name.localeCompare(b.name))
-	};
-};
+// not awaited: the page renders right away and ResourceGrid shows skeletons until the promise resolves
+export const load: PageLoad = ({ fetch }) => ({
+	people: getPeople(fetch).then((people) => people.toSorted((a, b) => a.name.localeCompare(b.name)))
+});
