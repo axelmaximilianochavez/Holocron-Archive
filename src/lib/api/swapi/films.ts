@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { swapiFetch, swapiResourceSchema } from './client';
+import { swapiFetch, swapiResourceSchema, type Fetch } from './client';
 
 export const filmSchema = swapiResourceSchema.extend({
 	title: z.string(),
@@ -17,6 +17,6 @@ export const filmSchema = swapiResourceSchema.extend({
 
 export type Film = z.infer<typeof filmSchema>;
 
-export function getFilms(fetch: typeof globalThis.fetch): Promise<Film[]> {
+export function getFilms(fetch: Fetch): Promise<Film[]> {
 	return swapiFetch(fetch, '/films', z.array(filmSchema));
 }

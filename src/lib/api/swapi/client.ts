@@ -3,6 +3,9 @@ import { z } from 'zod';
 
 const BASE_URL = 'https://swapi.info/api';
 
+/** The `fetch` a `load` function receives; pass it through so SvelteKit can track the request. */
+export type Fetch = typeof globalThis.fetch;
+
 /** Fields every SWAPI resource shares; each resource schema extends this. */
 export const swapiResourceSchema = z.object({
 	created: z.iso.datetime(),
@@ -14,10 +17,9 @@ export const swapiResourceSchema = z.object({
  * Fetches a SWAPI path and validates the response against `schema`.
  * Throws SvelteKit `error()`s, so a failure inside `load` renders `+error.svelte`.
  *
- * @param fetch the `fetch` passed to `load`, so SvelteKit can track and dedupe the request
  */
 export async function swapiFetch<T extends z.ZodType>(
-	fetch: typeof globalThis.fetch,
+	fetch: Fetch,
 	path: string,
 	schema: T
 ): Promise<z.infer<T>> {
